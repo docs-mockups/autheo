@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkautheo=self.webpackChunkautheo||[]).push([[1903],{1912:e=>{e.exports=JSON.parse('{"blogBasePath":"/autheo/blog","blogTitle":"Blog","authorsListPath":"/autheo/blog/authors"}')}}]);

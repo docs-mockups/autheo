@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkautheo=self.webpackChunkautheo||[]).push([[7199],{2625:e=>{e.exports=JSON.parse('{"metadata":{"permalink":"/autheo/blog","page":1,"postsPerPage":10,"totalPages":1,"totalCount":4,"blogDescription":"Blog","blogTitle":"Blog"}}')}}]);
