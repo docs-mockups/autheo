@@ -20,7 +20,7 @@ const config = {
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'docs-mockup', // Usually your GitHub org/user name.
+  organizationName: 'docs-mockups', // Usually your GitHub org/user name.
   projectName: 'autheo', // Usually your repo name.
   deploymentBranch: "gh-pages",
 
