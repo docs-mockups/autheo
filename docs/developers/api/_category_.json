@@ -1,6 +1,6 @@
 {
   "label": "Autheo API",
-  "position": 2,
+  "position": 5,
   "link": {
     "type": "generated-index",
     "description": "Directly interacting with the Autheo blockchain."
