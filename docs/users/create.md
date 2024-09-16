@@ -12,7 +12,7 @@ This will bring you to the initial *Sign Up* window, where you can choose one of
 
 2. [Sign Up with Google](#sign-up-with-google): Sign up for Autheo by associating your Google account.
 
-3. [Sign Up with Wallet](#sign-up-with-wallet): Create a new account based on an [existing wallet](./wallet.md).
+3. [Sign Up with Wallet](#sign-up-with-wallet): Create a new account based on an existing wallet.
 
 ## Manual Sign Up
 
