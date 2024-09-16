@@ -1,7 +1,7 @@
 ---
-sidebar_position: 1
+sidebar_position: 3
 ---
 
-# Autheo Tutorials
+# Account Settings
 
-This section will focus more on the UI/UX for creators building on Autheo and will reference the associated Figma files.
+This section will focus on user account settings.

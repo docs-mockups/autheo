@@ -1,7 +1,7 @@
 ---
-sidebar_position: 1
+sidebar_position: 4
 ---
 
-# Autheo Tutorials
+# Creating a New Group
 
-This section will focus more on the UI/UX for creators building on Autheo and will reference the associated Figma files.
+This section will focus creating a new group within Autheo.
