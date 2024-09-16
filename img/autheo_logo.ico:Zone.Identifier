@@ -1,0 +1,4 @@
+[ZoneTransfer]
+ZoneId=3
+ReferrerUrl=https://cloudconvert.com/
+HostUrl=https://us-east.storage.cloudconvert.com/tasks/4aedae9e-55a9-4182-a6e8-e94f4908ef7b/autheo_logo.ico?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=cloudconvert-production%2F20240916%2Fva%2Fs3%2Faws4_request&X-Amz-Date=20240916T183730Z&X-Amz-Expires=86400&X-Amz-Signature=e96777e3ea824a3437b6e171d6befa4d9ff9248e07dc7492d59ba0d169b2b039&X-Amz-SignedHeaders=host&response-content-disposition=attachment%3B%20filename%3D%22autheo_logo.ico%22&response-content-type=image%2Fvnd.microsoft.icon&x-id=GetObject
