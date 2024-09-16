@@ -30,7 +30,7 @@ Verifying your account will bring you to the next screen, where we will begin bu
 
 Here, you can choose a *Niche* you are interested in. The dropdown menu allows you to choose a specific niche, or show all available *topics*. You may choose multiple topics within a single niche. If you want to add an additional niche, click the plus sign to the right of your existing niche to bring up another *Select Niche* instance. Once you are satisfied with your selections, click *Next*.
 
-The *Create Community* window gives you the opportunity to create your own community on Autheo. You can find more information on creating a community [here](). If you do not want to create a community, click *Skip* to move to the next window.
+The *Create Community* window gives you the opportunity to create your own community on Autheo. You can find more information on creating a community here. If you do not want to create a community, click *Skip* to move to the next window.
 
 The final page allows you to link various social media accounts to your Autheo account. Autheo natively supports linking [Facebook](https://www.facebook.com/), [Instagram](https://www.instagram.com/), [Twitter/X](https://twitter.com/) and [Youtube](https://www.youtube.com/). You can divide these socials by sector if you are involved in more than one niche. Sectors can be added by clicking the green plus sign to the right of your existing *Select Sector* instance.
 
