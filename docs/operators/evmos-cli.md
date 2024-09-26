@@ -44,7 +44,7 @@ jq --version
 
 The easiest method of installing Evmos CLI is to clone the [Github Repository](https://github.com/evmos/evmos) and build from source. To do so, use the following commands in order:
 
-* **The variable <tag> in the below command should be replaced with the current [Evmos release](https://github.com/evmos/evmos/releases)**.
+- **The variable <tag> in the below command should be replaced with the current [Evmos release](https://github.com/evmos/evmos/releases)**.
 
 ```bash
 
