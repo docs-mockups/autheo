@@ -20,7 +20,7 @@ When singing up manually, you will need to enter your *Full Name*, your desired 
 
 :::note
 
-We recommend using a password that is at least 12 characters long, comprised of letters, numbers and special characers.
+We recommend using a password that is at least 12 characters long, comprised of letters, numbers and special characters.
 
 :::
 
@@ -48,7 +48,7 @@ We suggest writing your private key down and physically storing it in a safe spa
 
 :::
 
-After storing your private key, click *Got it* to move to the *Select Chains* window. Here, you can chooose which blockchains you want to associate you wallet with initially. You can add or remove chains in the future using the *Manage Chain Visibility* option in the sidebar. Clicking *Save* will complete the account creation process.
+After storing your private key, click *Got it* to move to the *Select Chains* window. Here, you can choose which blockchains you want to associate you wallet with initially. You can add or remove chains in the future using the *Manage Chain Visibility* option in the sidebar. Clicking *Save* will complete the account creation process.
 
 ## Sign Up with Wallet
 

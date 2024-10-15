@@ -2,59 +2,113 @@
 sidebar_position: 2
 ---
 
-# Running a Validator Node
+# Autheo Node Setup
 
-The Autheo blockchain is based on underlying [Evmos](https://evmos.org/) architecture. As a [Proof-of-Stake](https://en.wikipedia.org/wiki/Proof_of_stake) protocol, consensus is achieved through a trusted network of **Validators**. These validators propose new blocks and validate the single source of truth that will become the historical blockchain. Their vote weight corresponds to their amount of **staked** Autheo tokens. 
+The following document outlines the steps necessary to setup your Autheo validator node. You will need **Ubuntu 22.04** for this process.
 
-To run a validatior node on the Autheo blockchain, you will need to own or have access to hardware with the following minimum requirements:
+## Cloning Node Software
 
-* 4 or more physical CPU cores
-
-* A minimum of 500GB of NVME SSD disk storage.
-
-* A minimum of 32GB of RAM.
-
-* A minimum network bandwidth of 100mbps.
-
-Evmos supports macOS architectures of `darwin/arm64` and `darwin/x86_64` and Linux architectures of `linux/arm64` and `linux/amd64`.
-
-Uptime metrics are critical for participation in consensus, and you should ensure a steady, consistent internet connection.
-
-## Creating a Validator Entry
-
-Creating a new validator can be done through [Evmos CLI](./evmos-cli.md) and requires a previously created **Autheo account** with the amount of tokens you plan to stake.
-
-Expand the following section if you need instructions on creating and funding an Autheo account using Evmos CLI.
-
-<details>
-<summary><b>Creating an Account</b></summary>
-
-You can use the `evmosd keys add <name>` command to create a new key attached to your Autheo account. For example:
+You can either download the node software binary from Github directly or use the following CLI command to clone the repository locally:
 
 ```bash
 
-evmosd keys add MyTestKey
+git clone <Repo Location TBD on deployment>
 
 ```
 
-The interface will prompt you to enter a new passphrase. It must be at least 8 characters. After entering the passphrase twice, you will see a response similar to the following:
+## Adjust `authd` and `rpc.sh` Files
+
+You will need to move the `authd` binary located in **user/local/bin**
+
+<!-- TODO: Check with Zeeve about what this means. -->
+
+In the cloned node repo, you will find the file `rpc.sh`. Verify that the contents appear as follows:
 
 ```bash
 
-- address: evmos1ea7vesz3hztg4x8qwwvtz92tpwvge9keaxpptg
-  name: MyTestKey
-  pubkey: '{"@type":"/ethermint.crypto.v1.ethsecp256k1.PubKey","key":"A9hsGFQHxq4cntVtxKtUciJ6uR5YqNZX3Ab/3DF33wAp"}'
-  type: local
+*********************************************
+#!/bin/bash
 
+LOGLEVEL="debug"
+NODE_NUMBER=3
+CONST_NODE_NAME="auth-rpc-node"
+CHAINID="auth_ChainID-1"
 
-**Important** write this mnemonic phrase in a safe place.
-It is the only way to recover your account if you ever forget your password.
+# Set the script directory
+SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
+HOMEDIR="${SCRIPT_DIR}/${CONST_NODE_NAME}${NODE_NUMBER}"
 
-cup human fortune until giant exile guilt purse argue general sword naive mobile fitness initial engine produce brave hole submit oblige suspect roof anxiety
+# Function to set up the Ethereum node
+function setupNode() {
+  mkdir -p "${HOMEDIR}/config"
+
+  # Initialize the node
+  authd config keyring-backend "file" --home "$HOMEDIR"
+  authd config chain-id "$CHAINID" --home "$HOMEDIR"
+  authd config node "tcp://${CONST_NODE_NAME}${NODE_NUMBER}:26657" --home "$HOMEDIR"
+  authd init "${CONST_NODE_NAME}${NODE_NUMBER}" -o --chain-id "$CHAINID" --home "$HOMEDIR"
+}
+
+# Function to update application configuration
+function updateAppConfig() {
+  sed -i '/minimum-gas-prices =/c\minimum-gas-prices = "0.0001mol"' "$HOMEDIR/config/app.toml"
+  sed -i '/address = "0.0.0.0:8545"/c\address = "0.0.0.0:8545"' "$HOMEDIR/config/app.toml"
+  sed -i '/ws-address = "127.0.0.1:8546"/c\ws-address = "0.0.0.0:8546"' "$HOMEDIR/config/app.toml"
+  sed -i '/api = "eth,net,web3"/c\api = "eth,txpool,personal,net,debug,web3"' "$HOMEDIR/config/app.toml"
+}
+
+# Main execution
+set -o xtrace
+setupNode
+copyGenesis
+updateAppConfig
+
+*****************************************
 
 ```
 
-You can then send Autheo tokens to the listed `address`, shown here as **evmos1ea7vesz3hztg4x8qwwvtz92tpwvge9keaxpptg**.
+## Swap Out the Genesis.json File
 
-</details>
+In the `/$HOMEDIR/config/` directory, you will find a `genesis.json` file. Replace the existing `genesis.json` file with the new version found in your cloned node repo.
 
+## Creating the Service File
+
+Using your IDE of choice, create a new `authd.service` file containing the following code:
+
+```bash
+
+[Unit]
+Description=Auth Daemon
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/bin/sh -c 'echo "Z3xV7aDp" | authd start --json-rpc.api=eth,txpool,personal,net,debug,web3 --api.enable --home YOUR_HOME-DIR' 
+WorkingDirectory=/home/<USER>
+User=<USERNAME>
+Group=<GROUP>
+
+[Install]
+WantedBy=multi-user.target
+
+
+```
+
+You must replace the following variables within this file:
+
+* <USER> - The name of your node's working directory.
+
+* <USERNAME> - Your username for node access.
+
+* <GROUP> - The name of your node group.
+
+## Running the Node Software
+
+After completing the above configuration, you can run the node software with the following commands:
+
+```bash
+
+sudo systemctl enable authd.service
+sudo systemctl start authd.service 
+
+```

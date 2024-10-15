@@ -4,7 +4,7 @@ sidebar_position: 1
 
 # Getting Started with Evmos CLI
 
-Autheo is based off [Evmos](https://evmos.org/) architecure and relies on the Evmos CLI for node operation. Users looking to start a node on the Autheo network will first need to install both Evmos CLI and its necessary prerequisites.
+Autheo is based off [Evmos](https://evmos.org/) architecture and relies on the Evmos CLI for node operation. Users looking to start a node on the Autheo network will first need to install both Evmos CLI and its necessary prerequisites.
 
 ## Prerequisites
 
