@@ -96,11 +96,11 @@ WantedBy=multi-user.target
 
 You must replace the following variables within this file:
 
-* <USER> - The name of your node's working directory.
+* **USER** - The name of your node's working directory.
 
-* <USERNAME> - Your username for node access.
+* **USERNAME** - Your username for node access.
 
-* <GROUP> - The name of your node group.
+* **GROUP** - The name of your node group.
 
 ## Running the Node Software
 
