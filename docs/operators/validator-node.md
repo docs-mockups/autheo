@@ -22,7 +22,7 @@ You will need to move the `authd` binary located in **user/local/bin**
 
 <!-- TODO: Check with Zeeve about what this means. -->
 
-In the cloned node repo, you will find the file `rpc.sh`. Verify that the contents appear as follows:
+In the cloned node repo, you will find the file `rpc.sh`. You will need to update the `NODE_NUMBER` variable to the current number of nodes, plus one. Therefore, if there are currently 4 nodes, your `NODE_NUMBER` should be `5`. Verify that the contents appear as follows:
 
 ```bash
 
@@ -73,7 +73,15 @@ In the `/$HOMEDIR/config/` directory, you will find a `genesis.json` file. Repla
 
 ## Creating the Service File
 
-Using your IDE of choice, create a new `authd.service` file containing the following code:
+Using your IDE of choice, create a new `authd.service` file using the following command:
+
+```bash
+
+sudo vim /etc/systemd/system/authd.service
+
+```
+
+Your `authd.service` file should contain the following code:
 
 ```bash
 
